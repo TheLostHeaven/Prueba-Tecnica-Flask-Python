@@ -1,8 +1,8 @@
 from flask import Flask
 from src.routers.home import home
 from src.routers.auth import auth
-# from src.routers.user import user
-# from src.routers.tours import tours
+from src.routers.user import user
+from src.routers.tours import tours
 from src.routers.reserves import reserve
 from config import DATABASE_CONNECTION_URI, Config
 from src.utils.db import db
@@ -21,8 +21,8 @@ def app_create():
 
     app.register_blueprint(home)
     app.register_blueprint(auth)
-    # app.register_blueprint(user)
-    # app.register_blueprint(tours)
+    app.register_blueprint(user)
+    app.register_blueprint(tours)
     app.register_blueprint(reserve)
 
     return app
