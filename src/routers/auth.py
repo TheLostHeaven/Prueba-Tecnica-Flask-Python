@@ -1,4 +1,4 @@
-#jsonify 
+
 from flask import Blueprint, request, redirect, jsonify, current_app
 from src.models.user import User
 from src.utils.db import db
