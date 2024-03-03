@@ -1,5 +1,5 @@
 #jsonify 
-from flask import Blueprint, request, redirect, url_for, render_template, session, jsonify, current_app
+from flask import Blueprint, request, redirect, jsonify, current_app
 from src.models.user import User
 from src.utils.db import db
 from werkzeug.security import generate_password_hash, check_password_hash
