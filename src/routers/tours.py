@@ -1,11 +1,14 @@
 from flask import Blueprint, request, jsonify
 from src.models.tours import Tours
 from src.utils.db import db
+from src.utils.checktoken import token_required
+from src.utils.checkrole import admin_required
 
 tours = Blueprint('tours', __name__)
 
 #Create
 @tours.route('/tours', methods=['POST'])
+@admin_required
 def create_tour():
     try:
         data = request.get_json()
@@ -18,7 +21,8 @@ def create_tour():
 
 #Get
 @tours.route('/tours', methods=['GET'])
-def get_tours():
+@token_required
+def get_tours(current_user):
     try:
         tours = Tours.query.all()
         return jsonify([tour.serialize for tour in tours])
@@ -27,7 +31,8 @@ def get_tours():
 
 #GetForID
 @tours.route('/tours/<int:id>', methods=['GET'])
-def get_tour(id):
+@token_required
+def get_tour(current_user, id):
     try:
         tour = Tours.query.get(id)
         if tour is None:
@@ -38,6 +43,7 @@ def get_tour(id):
 
 #UpdateForID
 @tours.route('/tours/<int:id>', methods=['PUT'])
+@admin_required
 def update_tour(id):
     try:
         data = request.get_json()
@@ -55,6 +61,7 @@ def update_tour(id):
     
 #DeleteForID
 @tours.route('/tours/<int:id>', methods=['DELETE'])
+@admin_required
 def delete_tour(id):
     try:
         tour = Tours.query.get(id)
