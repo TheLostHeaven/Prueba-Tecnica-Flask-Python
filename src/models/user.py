@@ -8,12 +8,15 @@ class User(db.Model):
     email = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(500), nullable=False)
     date = db.Column(db.DateTime, default= datetime.datetime.now)
+    role_id = db.Column(db.Integer, db.ForeignKey('role.id'))
 
-    def __init__(self, username, fullname, email, password):
+
+    def __init__(self, username, fullname, email, password, role_id):
         self.username = username
         self.fullname = fullname
         self.email = email
         self.password = password
+        self.role_id = role_id  
 
 
     @property
@@ -24,4 +27,5 @@ class User(db.Model):
             'fullname': self.fullname,
             'email': self.email,
             'date': self.date,
+            'role_id': self.role_id,
         } 
