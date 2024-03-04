@@ -1,11 +1,12 @@
 from src.utils.db import db
+import datetime
 
 class Tours(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
     description = db.Column(db.String(120),  nullable=False)
-    date = db.Column(db.String(100), nullable=False)
-    price = db.Column(db.String(120),)
+    date = db.Column(db.DateTime, default= datetime.datetime.now, nullable=False)
+    price = db.Column(db.Integer(120), nullable=False)
     reserves = db.relationship('Reserves', backref='tour', lazy=True)
 
     def __init__(self, name, date, description, price):
