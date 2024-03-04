@@ -58,9 +58,9 @@ def auth_login():
 
                 return jsonify({'token': token}), 200
             else:
-                return jsonify({'message': 'Credenciales incorrectas. Inténtalo de nuevo.'}), 401
+                return jsonify({'message': 'Incorrect credentials. Please try again.'}), 401
         
-        return jsonify({'message': 'Método no permitido'}), 405
+        return jsonify({'message': 'Method Not Allowed'}), 405
     
     except Exception as err:
         return jsonify({'error': str(err)}), 500

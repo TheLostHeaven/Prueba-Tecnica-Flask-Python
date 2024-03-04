@@ -15,7 +15,7 @@ def create_tour():
         new_tour = Tours(name=data['name'], date=data['date'], description=data['description'], price=data['price'])
         db.session.add(new_tour)
         db.session.commit()
-        return jsonify({'message': 'Tour creado exitosamente!'}), 201
+        return jsonify({'message': 'Tour successfully created!'}), 201
     except Exception as err:
         return jsonify(err=str(err)),500
 
@@ -36,7 +36,7 @@ def get_tour(current_user, id):
     try:
         tour = Tours.query.get(id)
         if tour is None:
-            return jsonify({'message': 'Tour no encontrado'}), 404
+            return jsonify({'message': 'Tour not Found'}), 404
         return jsonify(tour.serialize)
     except Exception as err:
         return jsonify(err=str(err)),500
@@ -49,13 +49,13 @@ def update_tour(id):
         data = request.get_json()
         tour = Tours.query.get(id)
         if tour is None:
-            return jsonify({'message': 'Tour no encontrado'}), 404
+            return jsonify({'message': 'Tour not Found'}), 404
         tour.name = data['name']
         tour.date = data['date']
         tour.description = data['description']
         tour.price = data['price']
         db.session.commit()
-        return jsonify({'message': 'Tour actualizado exitosamente!'})
+        return jsonify({'message': 'Tour updated successfully!'})
     except Exception as err:
         return jsonify(err=str(err)),500
     
@@ -66,9 +66,9 @@ def delete_tour(id):
     try:
         tour = Tours.query.get(id)
         if tour is None:
-            return jsonify({'message': 'Tour no encontrado'}), 404
+            return jsonify({'message': 'Tour Not Found'}), 404
         db.session.delete(tour)
         db.session.commit()
-        return jsonify({'message': 'Tour eliminado exitosamente!'})
+        return jsonify({'message': 'Tour Successfully Eliminated!'})
     except Exception as err:
         return jsonify(err=str(err)),500

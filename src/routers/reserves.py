@@ -16,7 +16,7 @@ def createReserve(current_user):
         new_reserve = Reserves(user_id=current_user.id, tours_id=data['tours_id'], date=data['date'], people=data['people'], status=status)
         db.session.add(new_reserve)
         db.session.commit()
-        return jsonify({'message': 'Reserva creada exitosamente!'}), 201
+        return jsonify({'message': 'Booking successfully created!'}), 201
     except Exception as err:
         return jsonify(err=str(err)),500
 
@@ -32,7 +32,6 @@ def get_reserve(current_user):
 
 #Update
 
-# @reserve.route
 @reserve.route('/reserve/<int:id>', methods=['PUT'])
 @token_required
 def updateReserve(current_user, id):
@@ -40,7 +39,7 @@ def updateReserve(current_user, id):
         data = request.get_json()
         reserve = Reserves.query.get(id)
         if not reserve:
-            return jsonify({'message': 'Reserva no encontrada'}), 404
+            return jsonify({'message': 'Reserva not Found'}), 404
 
         # Lista de campos permitidos para actualizar
         allowed_fields = ['date', 'people', 'status']
@@ -48,10 +47,10 @@ def updateReserve(current_user, id):
         for key, value in data.items():
             if key in allowed_fields:
                 if key == 'status' and value not in STATUS_DICT:
-                    return jsonify({'message': 'Estado no válido'}), 400
+                    return jsonify({'message': 'Invalid Status'}), 400
                 setattr(reserve, key, value)
 
         db.session.commit()
-        return jsonify({'message': 'Reserva actualizada exitosamente!'}), 200
+        return jsonify({'message': 'Booking updated successfully!'}), 200
     except Exception as err:
         return jsonify(err=str(err)),500
