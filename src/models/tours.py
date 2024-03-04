@@ -6,7 +6,7 @@ class Tours(db.Model):
     name = db.Column(db.String(80), nullable=False)
     description = db.Column(db.String(120),  nullable=False)
     date = db.Column(db.DateTime, default= datetime.datetime.now, nullable=False)
-    price = db.Column(db.Integer(120), nullable=False)
+    price = db.Column(db.Integer, nullable=False)
     reserves = db.relationship('Reserves', backref='tour', lazy=True)
 
     def __init__(self, name, date, description, price):

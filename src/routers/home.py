@@ -5,4 +5,4 @@ home = Blueprint('home', __name__)
 
 @home.route('/')
 def homePage():
-    return 'welcome to api in flask'
+    return '<h1>welcome to api in flask</h1>'
