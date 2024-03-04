@@ -9,6 +9,7 @@ class User(db.Model):
     password = db.Column(db.String(500), nullable=False)
     date = db.Column(db.DateTime, default= datetime.datetime.now)
     role_id = db.Column(db.Integer, db.ForeignKey('role.id'))
+    reserves = db.relationship('Reserves', backref='user', lazy=True, cascade="all,delete")
 
 
     def __init__(self, username, fullname, email, password, role_id):
