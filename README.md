@@ -1,6 +1,6 @@
 # Api Boking de tours - Flask
 
-Este proyecto es un ejemplo de una API RESTful desarrollada con Flask que permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en un modelo de ours
+Este proyecto es un ejemplo de una API RESTful desarrollada con Flask que permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en un modelo de tours
 
 
 Este proyecto esta Generado en Flask 3.0.2 [Flask Micro-FrameWork](https://github.com/pallets/flask)
@@ -8,10 +8,11 @@ Este proyecto esta Generado en Flask 3.0.2 [Flask Micro-FrameWork](https://githu
 
 ## Version Oficial V1.0
 
-
+![Captura de pantalla 2024-03-04 060439](https://github.com/TheLostHeaven/Prueba-Tecnica-Flask-Python/assets/90277397/8079b889-650f-4d7d-8800-f3e76e938f6e)
 
 ## Estructura de carpetas
 
+![Captura de pantalla 2024-03-04 055919](https://github.com/TheLostHeaven/Prueba-Tecnica-Flask-Python/assets/90277397/b9921fcd-2d9f-4509-84bb-c6f08c0b9c95)
 
 ## Funcionalidades
 
