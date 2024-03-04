@@ -35,7 +35,7 @@ def create_admin_user():
         if admin_user is None:
             password_admin = os.getenv('ADMIN_PASSWORD')
             if password_admin is None:
-                print("No se encontró la contraseña del administrador en las variables de entorno")
+                print("Not found admin password in the enviroment")
                 return
             
         # Crea un nuevo usuario administrador
@@ -52,5 +52,5 @@ def create_admin_user():
         db.session.commit()
 
     except Exception as err:
-        print(f"Error al crear el usuario administrador: {err}")
+        print(f"Error to create admin user: {err}")
 
