@@ -155,6 +155,6 @@ http://127.0.0.1:5000/reserve/
 Si tienes alguna pregunta o sugerencia o quieres la documentacion para desarrollar este proyecto, no dudes en contactarme en [tiquedaniel2002@gmail.com](tiquedaniel2002@gmail.com).
 
 
-## Autors
+## Autores
 
 - [@Daniel Molina](https://github.com/TheLostHeaven)
