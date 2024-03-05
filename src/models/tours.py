@@ -1,4 +1,5 @@
 from src.utils.db import db
+from sqlalchemy.orm import validates
 import datetime
 
 class Tours(db.Model):
@@ -24,3 +25,9 @@ class Tours(db.Model):
             'date': self.date,
             'price': self.price
         }
+    
+    @validates('name', 'date', 'description', 'price')
+    def validate_not_empty(self, key, value):
+        if not value:
+            raise AssertionError(f'{key} should not be empty')
+        return value
