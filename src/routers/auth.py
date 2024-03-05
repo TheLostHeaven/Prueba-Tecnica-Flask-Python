@@ -9,7 +9,7 @@ import jwt
 auth = Blueprint('auth', __name__)
 
 #Register
-@auth.route('/register', methods=['GET', 'POST'])
+@auth.route('/register', methods=['POST'])
 def auth_register():
     try:
         data = request.get_json()
