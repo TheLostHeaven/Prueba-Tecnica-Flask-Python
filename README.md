@@ -1,5 +1,17 @@
 # Api Boking de tours - Flask
 
+# Índice
+
+- [Version Oficial V1.0](#version-oficial-v1.0)
+- [Estructura de carpetas](#estructura-de-carpetas)
+- [Funcionalidades](#funcionalidades)
+- [Tecnologías Usadas](#tecnologias-usadas)
+- [Instalación](#instalacion)
+- [Configuración](#configuracion)
+- [Uso](#uso)
+- [Contacto](#contacto)
+- [Autores](#autores)
+
 Este proyecto es un ejemplo de una API RESTful desarrollada con Flask que permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en un modelo de tours
 
 
@@ -79,20 +91,64 @@ $ git remote add origin <nueva_url_del_repositorio>
 ```bash
 $ pip install -r requirements.txt
 ```
+## Configuración
+
+> [!IMPORTANT]
+>Es importante la configuracion y en MYSQL_DB asignar tu DB
+
+1 .env Configuración
+
+```env
+
+SECRET_KEY=
+MYSQL_HOST=
+MYSQL_USER=
+MYSQL_PASSWORD=
+MYSQL_DB=
+JWT_KEY=
+
+ADMIN_USERNAME = 
+ADMIN_FULLNAME = 
+ADMIN_EMAIL = 
+ADMIN_PASSWORD = 
+ADMIN_ROLE_ID =
+
+MYSQL_USER_TEST = 
+MYSQL_PASSWORD_TEST = 
+MYSQL_HOST_TEST = 
+MYSQL_DATABASE_TEST = 
+```
+2 recuerda inicializar y configurar tu base de datos MySQL SQLite o en todo caso la de tu preferencia
+
+3 Inicia la app con 
+```bash
+    python index.py
+```
+4 Puedes acceder a ella desde el puerto configurado:
+
+http://127.0.0.1:5000/
 
 
 ## Uso
 
-1 Inicia la app con 
+#### iniciado el puerto puedes navegar en diferentes rutas:
+- user 
 ```bash
-$ python index.py
+http://127.0.0.1:5000/register
+http://127.0.0.1:5000/login
+```
+- tour
+```bash
+http://127.0.0.1:5000/tours/
+
+```
+- Bookings
+```bash
+http://127.0.0.1:5000/reserve/
+
 ```
 
-2 Puedes acceder a ella desde el puerto configurado:
 
-http://127.0.0.1:5000/
-
-3 Prueba las diferentes Funcionalidades de la pagina 
 
 ## Contacto
 
