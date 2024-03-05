@@ -22,7 +22,7 @@ class Tours(db.Model):
             'id': self.id,
             'name': self.name,
             'description': self.description,
-            'date': self.date,
+            'date': self.date.strftime('%Y-%m-%d'),
             'price': self.price
         }
     
