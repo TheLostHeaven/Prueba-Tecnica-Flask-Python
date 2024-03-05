@@ -34,7 +34,7 @@ def get_tours(current_user):
 @token_required
 def get_tour(current_user, id):
     try:
-        tour = Tours.query.get(id)
+        tour = db.session.get(Tours, id)
         if tour is None:
             return jsonify({'message': 'Tour not Found'}), 404
         return jsonify(tour.serialize)
@@ -47,7 +47,7 @@ def get_tour(current_user, id):
 def update_tour(id):
     try:
         data = request.get_json()
-        tour = Tours.query.get(id)
+        tour = db.session.get(Tours, id)
         if tour is None:
             return jsonify({'message': 'Tour not Found'}), 404
         tour.name = data['name']
@@ -55,16 +55,17 @@ def update_tour(id):
         tour.description = data['description']
         tour.price = data['price']
         db.session.commit()
-        return jsonify({'message': 'Tour updated successfully!'})
+        return jsonify(tour.serialize), 200
     except Exception as err:
-        return jsonify(err=str(err)),500
+        print(err)
+        return jsonify(err=str(err)), 500
     
 #DeleteForID
 @tours.route('/tours/<int:id>', methods=['DELETE'])
 @admin_required
 def delete_tour(id):
     try:
-        tour = Tours.query.get(id)
+        tour = db.session.get(Tours, id)
         if tour is None:
             return jsonify({'message': 'Tour Not Found'}), 404
         db.session.delete(tour)
