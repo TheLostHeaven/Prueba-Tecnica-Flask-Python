@@ -24,7 +24,7 @@ Este proyecto esta Generado en Flask 3.0.2 [Flask Micro-FrameWork](https://githu
 
 ## Estructura de carpetas
 
-![Captura de pantalla 2024-03-04 055919](https://github.com/TheLostHeaven/Prueba-Tecnica-Flask-Python/assets/90277397/b9921fcd-2d9f-4509-84bb-c6f08c0b9c95)
+![image](https://github.com/TheLostHeaven/Prueba-Tecnica-Flask-Python/assets/90277397/fe9b72cc-e319-460f-8f1f-e76fe67f92d7)
 
 ## Funcionalidades
 
