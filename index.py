@@ -1,3 +1,4 @@
+#Archivo donde se inicializa la app
 from app import app_create, db
 from src.utils.rolecreate import create_roles, create_admin_user
 

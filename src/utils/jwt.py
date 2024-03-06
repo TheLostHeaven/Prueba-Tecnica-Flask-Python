@@ -1,3 +1,4 @@
+#Creador del token JWT
 import jwt
 from datetime import datetime, timedelta
 from config import jwtKey

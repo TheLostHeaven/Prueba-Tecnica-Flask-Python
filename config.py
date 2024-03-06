@@ -1,3 +1,4 @@
+#Archivo donde se instacia los valores de .env necesarios para la ejecucion del la app
 from decouple import config
 from dotenv import load_dotenv
 import os 
