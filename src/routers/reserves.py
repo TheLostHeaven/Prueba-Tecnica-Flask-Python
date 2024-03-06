@@ -16,8 +16,9 @@ def createReserve(current_user):
         new_reserve = Reserves(user_id=current_user.id, tours_id=data['tours_id'], date=data['date'], people=data['people'], status=status)
         db.session.add(new_reserve)
         db.session.commit()
-        return jsonify({'message': 'Booking successfully created!'}), 201
+        return jsonify(status.serialize), 201
     except Exception as err:
+        print(err)
         return jsonify(err=str(err)),500
 
 #Get
@@ -51,6 +52,6 @@ def updateReserve(current_user, id):
                 setattr(reserve, key, value)
 
         db.session.commit()
-        return jsonify({'message': 'Booking updated successfully!'}), 200
+        return jsonify({'message': 'reserve updated successfully!'}), 200
     except Exception as err:
         return jsonify(err=str(err)),500

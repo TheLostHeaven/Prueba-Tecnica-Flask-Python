@@ -16,7 +16,7 @@ def app():
         create_roles()
         yield app
         db.session.remove()
-        time.sleep(10)
+        time.sleep(20)
         db.drop_all()
 
 @pytest.fixture
@@ -26,7 +26,7 @@ def client(app):
 def cleanup_database(app):
     print("Limpiando la base de datos...")
     with app.app_context():
-        time.sleep(10)
+        time.sleep(20)
         with db.session.begin():
             db.session.execute(text("SET foreign_key_checks = 0"))
             db.session.execute(text("DELETE FROM user"))

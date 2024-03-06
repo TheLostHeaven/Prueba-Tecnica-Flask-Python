@@ -26,7 +26,7 @@ class Reserves(db.Model):
         return {
             'id': self.id,
             'user_id': self.user_id,
-            'date': self.date,
+            'date': self.date.strftime('%Y-%m-%d'),
             'people': self.people,
             'tours_id': self.tours_id,
             'status': self.status,
